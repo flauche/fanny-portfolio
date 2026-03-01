@@ -5,7 +5,7 @@
 
 <template>
 
-<h1>Diseño web y apps interactivas</h1>
+<h1 class="text-2xl text-red-600">Diseño web y apps interactivas</h1>
 
 
 </template>
