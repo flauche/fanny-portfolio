@@ -4,7 +4,7 @@
 
 <template>
     <div>
-    <h1>Animation</h1>
+
     </div>
 </template>
 
