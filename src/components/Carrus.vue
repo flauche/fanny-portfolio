@@ -15,12 +15,14 @@ interface Props {
     autoPlayDelay?: number
     loop?: boolean
     dragFree?: boolean
+    links?: string[]
 }
 
 const props = withDefaults(defineProps<Props>(), {
     autoPlayDelay: 2000,
     loop:true,
-    dragFree: true
+    dragFree: true,
+    links: () => []
 }) 
 
 </script>
@@ -42,11 +44,16 @@ const props = withDefaults(defineProps<Props>(), {
             <div class="p-1">
             <Card class="border-none shadow-none bg-transparent">
                 <CardContent class="flex items-center justify-center p-0">
-                <img 
-                    :src="`${props.basePath}/${ photo }.jpg`" 
-                    alt="`Imagen ${ index + 1 } `"
-                    class="w-full h-full object-cover">
-
+                    <RouterLink 
+                        :to="props.links[index] || '#'" 
+                        class="block w-full h-full group"
+                    >
+                        <img 
+                            :src="`${props.basePath}/${ photo }.jpg`" 
+                            alt="`Imagen ${ index + 1 } `"
+                            class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-70"
+                        >
+                    </RouterLink>
                 </CardContent>
             </Card>
             </div>

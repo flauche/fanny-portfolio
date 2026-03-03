@@ -5,6 +5,14 @@ import LayoutPrincipal from '@/layout/LayoutPrincipal.vue';
 
 const photos = ["miloa2", "letras2", "eJS2", "postcard2", "comicZiper2"];
 
+const photoLinks = [
+  "/portfolio/1",
+  "/portfolio/2", 
+  "/portfolio/3",
+  "/portfolio/4",
+  "/portfolio/5"
+];
+
 </script>
 
 <template>
@@ -26,7 +34,7 @@ const photos = ["miloa2", "letras2", "eJS2", "postcard2", "comicZiper2"];
         <img 
           class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 scale-130"
 
-          src="/imagines/home/cuadro2.png"
+          src="/imagines/home/cuadro7.png"
           alt="Marco"
         />
       </div>
@@ -49,6 +57,7 @@ const photos = ["miloa2", "letras2", "eJS2", "postcard2", "comicZiper2"];
       <div class="w-full max-w-xl md:max-w-2xl px-4 mb-8 md:mb-12 lg:mb-16">
       <Carrus
           :photos="photos"
+          :links="photoLinks"
           basePath="/imagines/home"
           :auto-play-delay="2000"
           class="carousel-contained"
@@ -58,7 +67,7 @@ const photos = ["miloa2", "letras2", "eJS2", "postcard2", "comicZiper2"];
     <!-- Botón Ver portafolios -->
       <div class="mb-12 md:mb-16">
         <Button class="bg-[rgb(209,172,0)] hover:bg-[rgba(209,172,0,0.7)] text-white px-15 py-4 text-5xl font-imperial rounded-4xl">
-          <RouterLink to="/portfolio">Ver portafolios</RouterLink>
+          <RouterLink to="/portafolios">Ver portafolios</RouterLink>
         </Button>
       </div>
     </main>

@@ -1,7 +1,10 @@
 import Bio from "@/pages/bio/Bio.vue";
 import Contact from "@/pages/contact/Contact.vue";
+import Dibujos from "@/pages/dibujos/dibujos.vue";
+import Editorial from "@/pages/editorial/Editorial.vue";
 import Home from "@/pages/home/Home.vue";
-import Portfolio from "@/pages/portfolios/Portfolio.vue";
+import Illust from "@/pages/illust/Illust.vue";
+import Portafolios from "@/pages/Portafolios/Portafolios.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 
 
@@ -16,9 +19,9 @@ export const router = createRouter({
       component: Home
     },
     {
-      path: '/portfolio',
-      name: 'portfolio',
-      component: Portfolio
+      path: '/portafolios',
+      name: 'portafolios',
+      component: Portafolios
     },
     {
       path: '/bio',
@@ -29,6 +32,21 @@ export const router = createRouter({
       path: '/contact',
       name: 'contact',
       component: Contact
+    },
+    {
+      path: '/ilustracion',
+      name: 'illust',
+      component: Illust
+    },
+    {
+      path: '/editorial',
+      name: 'editorial',
+      component: Editorial
+    },
+    {
+      path: '/dibujos',
+      name: 'dibujos',
+      component: Dibujos
     },
     {
       path: '/:pathMatch(.*)*',
