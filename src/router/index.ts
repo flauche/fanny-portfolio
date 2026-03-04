@@ -3,6 +3,8 @@ import Contact from "@/pages/contact/Contact.vue";
 import Dibujos from "@/pages/dibujos/dibujos.vue";
 import Editorial from "@/pages/editorial/Editorial.vue";
 import Home from "@/pages/home/Home.vue";
+import Detalle from "@/pages/illust/Detalle.vue";
+import Gallery from "@/pages/illust/Gallery.vue";
 import Illust from "@/pages/illust/Illust.vue";
 import Portafolios from "@/pages/Portafolios/Portafolios.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
@@ -35,8 +37,19 @@ export const router = createRouter({
     },
     {
       path: '/ilustracion',
-      name: 'illust',
-      component: Illust
+      component: Illust,
+      children: [
+            {
+              path: '',
+              name: 'ilustracion-gallery',
+              component: Gallery
+            },
+            {
+              path: ':id',
+              name: 'ilustracion-detalle',
+              component: Detalle
+            }
+          ]
     },
     {
       path: '/editorial',

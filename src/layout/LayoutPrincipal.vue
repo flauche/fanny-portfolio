@@ -5,13 +5,13 @@ import { Instagram, Linkedin } from 'lucide-vue-next'
 </script>
 
 <template>
-    <div class="min-h-screen bg-[rgb(250,244,211)] flex flex-col">
+    <div class="min-h-screen bg-[rgb(250,244,211)] flex flex-col w-full">
     <!-- Header con icono home y botones -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-[rgb(209,172,0)] flex items-center justify-between px-4 md:px-6 py-3 shadow-sm">
       <!-- Icono home -->
       <RouterLink to="/" class="shrink-0">
         <img 
-          class="h-6 w-auto md:h-10" 
+          class="h-6 w-auto md:h-8" 
           src="/imagines/home/iconFanny1.svg" 
           alt="Home"
         />
@@ -31,7 +31,7 @@ import { Instagram, Linkedin } from 'lucide-vue-next'
       </div>
     </header>
 
-    <div class="h-[60px] md:h-[100px]"></div>
+    <div class="h-[80px]"></div>
 
      <!-- Contenido de cada página -->
     <main class="flex-grow">
