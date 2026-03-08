@@ -4,11 +4,13 @@ export interface Ilustracion {
   imago: string;
   quote: string;
   descriptione: string;
+  año: number;
 }
 
 export const ilustraciones = [
   {
     id: 0,
+    año: 2021,
     nomen: "Autorretrato como una ovejita",
     imago: "autorOveja.jpg",
     quote: "ILUSTRACIÓN DIGITAL",
@@ -17,6 +19,7 @@ export const ilustraciones = [
 
   {
     id: 1,
+    año: 2020,
     nomen: "Una persona constante",
     imago: "constante.jpg",
     quote: "ILUSTRACIÓN ACRÍLICA",
@@ -25,6 +28,7 @@ export const ilustraciones = [
   
   { 
     id: 2,
+    año: 2020,
     nomen: "Nara y Sara",
     imago: "narSar.jpg",
     quote: "GOUACHE CON LÁPICES DE COLORES",
@@ -34,6 +38,7 @@ export const ilustraciones = [
   
   {
     id: 3,
+    año: 2021,
     nomen: "Mi lugar de trabajo ideal",
     imago: "lugarIdeal.jpg",
     quote: "ILUSTRACIÓN DIGITAL",
@@ -42,6 +47,7 @@ export const ilustraciones = [
   
   {
     id: 4, 
+    año: 2025,
     nomen: "El jardín secreto",
     imago: "eJSport.jpg",
     quote: "ILUSTRACIÓN NARRATIVA",
@@ -50,6 +56,7 @@ export const ilustraciones = [
   
   {
     id: 5,
+    año: 2021,
     nomen: "Feliz año nuevo chino",
     imago: "tarjFelic.jpg",
     quote: "ILUSTRACIÓN DIGITAL",
@@ -58,6 +65,7 @@ export const ilustraciones = [
   
   { 
     id: 6,
+    año: 2021,
     nomen: "Fanny Fun Time",
     imago: "funTime.jpg",
     quote: "ILUSTRACIÓN DIGITAL",
@@ -65,6 +73,7 @@ export const ilustraciones = [
   },
   {
     id: 7,
+    año: 2025,
     nomen: "36 Days of Type",
     imago: "letrritas.jpg",
     quote: "ILUSTRACIONES A GOUACHE",

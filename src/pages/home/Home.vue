@@ -3,7 +3,24 @@ import { ref } from 'vue';
 import Carrus from '@/components/Carrus.vue';
 import LayoutPrincipal from '@/layout/LayoutPrincipal.vue';
 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { router } from '@/router';
+
 const photos = ["miloa2", "letras2", "eJS2", "postcard2", "comicZiper2"];
+
+const selectedPage = ref('');
+
+const goToPage = () => {
+  if (selectedPage.value) {
+    router.push(selectedPage.value);
+  }
+};
 
 const photoLinks = [
   "/portfolio/1",
@@ -54,7 +71,7 @@ const photoLinks = [
       </div>
 
     <!-- Carousel -->
-      <div class="w-full max-w-xl md:max-w-2xl px-4 mb-8 md:mb-12 lg:mb-16">
+      <div class="w-full max-w-xl md:max-w-2xl px-4 mb-8">
       <Carrus
           :photos="photos"
           :links="photoLinks"
@@ -65,10 +82,25 @@ const photoLinks = [
         </div>
 
     <!-- Botón Ver portafolios -->
-      <div class="mb-12 md:mb-16">
-        <Button class="bg-[rgb(209,172,0)] hover:bg-[rgba(209,172,0,0.7)] text-white px-15 py-4 text-5xl font-imperial rounded-4xl">
-          <RouterLink to="/portafolios">Ver portafolios</RouterLink>
-        </Button>
+     <div class="flex gap-5 items-center">
+      <Select v-model="selectedPage">
+    <SelectTrigger class="font-mont w-124 text-1xl">
+      <SelectValue placeholder="Seleccione un portafolio" />
+    </SelectTrigger>
+    <SelectContent>
+      <SelectItem class="font-mont" value="ilustracion"><strong>Ilustración</strong></SelectItem>
+      <SelectItem class="font-mont" value="editorial"><strong>Editorial</strong></SelectItem>
+      <SelectItem class="font-mont" value="dibujos"><strong>Dibujos</strong></SelectItem>
+    </SelectContent>
+  </Select>
+
+      <Button 
+            @click="goToPage" 
+            :disabled="!selectedPage"
+            class="bg-[rgb(209,172,0)] hover:bg-[rgba(209,172,0,0.8)] text-white px-8 py-2 text-3xl font-imperial rounded-4xl"
+          >
+            Ver
+      </Button>
       </div>
     </main>
   </LayoutPrincipal>

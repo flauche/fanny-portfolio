@@ -2,6 +2,15 @@
 import Button from '@/components/ui/button/Button.vue';
 import { Instagram, Linkedin } from 'lucide-vue-next'
 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+
 </script>
 
 <template>
@@ -19,14 +28,25 @@ import { Instagram, Linkedin } from 'lucide-vue-next'
 
       <!-- Botones de navegación -->
       <div class="flex gap-2">
+          <DropdownMenu>
+            <DropdownMenuTrigger 
+              class="rounded-md text-sm bg-[rgb(250,244,211)] hover:bg-[rgba(250,244,211,0.7)] text-[rgb(209,172,0)] h-9 px-4 py-2 has-[>svg]:px-3"
+            >
+            <strong>Portafolios</strong>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent>
+              <DropdownMenuItem class="text-[rgb(209,172,0)]"><RouterLink to="/ilustracion">Ilustración</RouterLink></DropdownMenuItem>
+              <DropdownMenuItem class="text-[rgb(209,172,0)]"><RouterLink to="/editorial">Editorial</RouterLink></DropdownMenuItem>
+              <DropdownMenuItem class="text-[rgb(209,172,0)]"><RouterLink to="/dibujos">Dibujos</RouterLink></DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
         <Button class="bg-[rgb(250,244,211)] hover:bg-[rgba(250,244,211,0.7)] text-[rgb(209,172,0)]">
-          <RouterLink to="/portafolios">Portafolios</RouterLink>
+          <RouterLink to="/bio"><strong>Bio</strong></RouterLink>
         </Button>
         <Button class="bg-[rgb(250,244,211)] hover:bg-[rgba(250,244,211,0.7)] text-[rgb(209,172,0)]">
-          <RouterLink to="/bio">Bio</RouterLink>
-        </Button>
-        <Button class="bg-[rgb(250,244,211)] hover:bg-[rgba(250,244,211,0.7)] text-[rgb(209,172,0)]">
-          <RouterLink to="/contact">Contact</RouterLink>
+          <RouterLink to="/contact"><strong>Contact</strong></RouterLink>
         </Button>
       </div>
     </header>

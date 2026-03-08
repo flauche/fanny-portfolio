@@ -6,7 +6,6 @@ import Home from "@/pages/home/Home.vue";
 import Detalle from "@/pages/illust/Detalle.vue";
 import Gallery from "@/pages/illust/Gallery.vue";
 import Illust from "@/pages/illust/Illust.vue";
-import Portafolios from "@/pages/Portafolios/Portafolios.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 
 
@@ -19,11 +18,6 @@ export const router = createRouter({
       path: '/',
       name: 'home',
       component: Home
-    },
-    {
-      path: '/portafolios',
-      name: 'portafolios',
-      component: Portafolios
     },
     {
       path: '/bio',
