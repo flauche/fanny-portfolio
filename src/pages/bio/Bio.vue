@@ -124,14 +124,16 @@ const experienciaFiltrada = computed(() =>
 }
 
 .barra-año {
+  display: flex;
   width: 100%;
   padding-bottom: 1.5rem;
   color: #519061;
+  justify-content: center;
 }
 
 .año-field {
   width: 100%;
-  max-width: 250px;
+  max-width: 300px;
 }
 
 .contenido-grid {
@@ -247,11 +249,11 @@ const experienciaFiltrada = computed(() =>
     order: -1;
   }
 
-  .cv-section:nth-child(1) {
+  .sección-cv:nth-child(1) {
   order: 1;
   }
 
-  .cv-section:nth-child(2) {
+  .sección-cv:nth-child(2) {
   order: 2; 
   }
 }
@@ -265,12 +267,6 @@ const experienciaFiltrada = computed(() =>
 .foto-container {
   width: 100%;
   max-width: 250px;
-}
-
-@media (min-width: 1024px) {
-  .foto-container {
-    max-width: 100%;
-  }
 }
 
 .fotito {
@@ -290,8 +286,8 @@ const experienciaFiltrada = computed(() =>
 }
 
 .habilidades {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: #222;
   margin: 0;
   width: 100%;

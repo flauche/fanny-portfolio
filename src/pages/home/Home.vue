@@ -50,10 +50,16 @@ const photoLinks = [
           Soy Fanny, una chica de República Dominicana estudiando Diseño y Tecnologías Creativas en la UPV.
         </p>
         </div>
+  
       </div>
 
     <!-- Carousel -->
-      <div class="w-full max-w-xl md:max-w-2xl px-4 mb-8">
+      <div class="w-full max-w-xl md:max-w-2xl px-4 mb-4 mt-16">
+
+      <h1 class="text-5xl md:text-8xl lg:text-5xl text-[rgb(209,172,0)] font-imperial text-center"> 
+        Selección de trabajos
+      </h1>
+    
       <Carrus
           :photos="photos"
           :links="photoLinks"
@@ -64,9 +70,9 @@ const photoLinks = [
         </div>
 
     <!-- Botón Ver portafolios -->
-     <div class="flex gap-5 items-center">
+     <div class="flex items-center">
        <Button class="bg-[rgb(209,172,0)] hover:bg-[rgba(209,172,0,0.7)] text-white px-15 py-4 text-5xl font-imperial rounded-4xl">
-          <RouterLink to="/portafolio">Ver portafolios</RouterLink>
+          <RouterLink to="/portafolio">Ver más</RouterLink>
         </Button>
       </div>
     </main>

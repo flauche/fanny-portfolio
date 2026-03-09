@@ -9,6 +9,8 @@ import {
 } from '@/components/ui/carousel'
 import Autoplay from 'embla-carousel-autoplay'
 
+import { trabajos } from './data';
+
 interface Props {
     photos: string[]
     basePath: string
@@ -24,6 +26,12 @@ const props = withDefaults(defineProps<Props>(), {
     dragFree: true,
     links: () => []
 }) 
+
+const trabajosSeleccionados = [
+  trabajos.find(t => t.id === 1),
+  trabajos.find(t => t.id === 5),
+  trabajos.find(t => t.id === 10),
+].filter(Boolean);
 
 </script>
 
@@ -59,8 +67,8 @@ const props = withDefaults(defineProps<Props>(), {
             </div>
         </CarouselItem>
         </CarouselContent>
-        <CarouselPrevious class="bg-gray-900 text-white hidden md:flex justify-center items-center"/>
-        <CarouselNext class="bg-gray-900 text-white hidden md:flex justify-center items-center"/>
+        <CarouselPrevious class="bg-[rgb(209,172,0)] text-white hidden md:flex justify-center items-center"/>
+        <CarouselNext class="bg-[rgb(209,172,0)] text-white hidden md:flex justify-center items-center"/>
     </Carousel>
 </template>
 

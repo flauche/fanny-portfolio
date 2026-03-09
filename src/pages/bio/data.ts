@@ -6,6 +6,11 @@ export interface Educacion {
 
 export const educaciones: Educacion[] = [
   {
+    año: 2018,
+    titulo: 'Bachiller',
+    institucion: 'El mejor colegio del mundo',
+  },
+  {
     año: 2021,
     titulo: 'Título técnico en Ilustración',
     institucion: 'Chavón La Escuela de Diseño',
