@@ -1,22 +1,31 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { ilustraciones, type Ilustracion } from './data';
+import { trabajos, type Trabajo } from './data';
 import LayoutPrincipal from '@/layout/LayoutPrincipal.vue';
 import { SquareArrowLeft } from 'lucide-vue-next';
 
 const route = useRoute()
 const router = useRouter()
 
-const ilustracion = ref<Ilustracion | undefined>(
-    ilustraciones.find(ilus => ilus.id === Number(route.params.id))
+const trabajo = ref<Trabajo | undefined>(
+    trabajos.find(trab => trab.id === Number(route.params.id))
 )
 
+const imagenes = computed(() => {
+  if (!trabajo.value) return [];
+  return Array.isArray(trabajo.value.imago) 
+    ? trabajo.value.imago 
+    : [trabajo.value.imago];
+});
+
 const devolver = () => {
-  const año = route.query.year;
   router.push({ 
-    path: '/ilustracion',
-    query: año ? { year: año.toString() } : undefined
+    name: 'portafolio-gallery',
+    query: { 
+      year: route.query.year ? String(route.query.year) : undefined,
+      categoria: route.query.categoria ? String(route.query.categoria) : undefined
+    }
   });
 };
 
@@ -24,31 +33,51 @@ const devolver = () => {
 
 <template>
   <LayoutPrincipal>
-    <div v-if="ilustracion" class="main">
+    <div v-if="trabajo" class="main">
       
       <div class="titulus" @click="devolver">
         <small class="quote"> 
-          {{ ilustracion.quote }}
+          {{ trabajo.quote }}
         </small>
         <h1 class="titulus-quote"> 
-          {{ ilustracion.nomen }}
+          {{ trabajo.nomen }}
         </h1>
       </div>
       
       <div class="contenido">
-        <figure class="figure-quote">
-          <img 
-            :src="`/imagines/illust/${ ilustracion?.imago }`" 
-            :alt="ilustracion.nomen" 
-          />
-        </figure>
-        <p class="descriptione">
-          {{ ilustracion.descriptione }} 
-        </p>
+        <div v-if="imagenes.length === 1" class="imagen-container">
+          <figure class="figure-quote">
+            <img 
+              :src="`/imagines/trabajos/${imagenes[0]}`" 
+              :alt="trabajo.nomen" 
+            />
+          </figure>
+          <p class="descriptione">
+          {{ trabajo.descriptione }} 
+          </p>
+        </div>
+        
+        <div v-else class="multi-container">
+          <div class="gallery-images">
+            <figure 
+              v-for="(imagen, index) in imagenes" 
+              :key="index"
+              class="figure-multiple"
+            >
+              <img 
+                :src="`/imagines/trabajos/${imagen}`" 
+                :alt="`${trabajo.nomen} - ${index + 1}`" 
+              />
+            </figure>
+          </div>
+          <p class="descriptione">
+          {{ trabajo.descriptione }} 
+          </p>
+        </div>
       </div>
       <SquareArrowLeft 
         class="text-[#519061] icon-back mb-3"
-        @click="router.push('/ilustracion')"/>
+        @click="devolver"/>
     </div>
   </LayoutPrincipal>
 </template>
@@ -133,8 +162,15 @@ const devolver = () => {
   gap: 2rem;
 }
 
+.imagen-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 @media (min-width: 1024px) {
-  .contenido {
+  .imagen-container {
     flex-direction: row;
     align-items: flex-start;
     gap: 3rem;
@@ -157,8 +193,53 @@ const devolver = () => {
 
 @media (min-width: 1024px) {
   .figure-quote {
-    max-width: 50%;
+    max-width: 65%;
   }
+}
+
+@media (min-width: 1024px) {
+  .figure-quote {
+    max-width: 65%;
+  }
+}
+
+.gallery-images {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .gallery-images {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.figure-multiple {
+  width: 100%;
+}
+
+.figure-multiple img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 0.5rem;
+  max-height: 600px;
+}
+
+.figure-multiple {
+  width: 100%;
+}
+
+.figure-multiple img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 0.5rem;
 }
 
 .descriptione {
@@ -168,6 +249,7 @@ const devolver = () => {
   font-weight: 300;
   color: rgba(0, 0, 0, 0.6);
   margin: 0;
+  margin-top: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -181,7 +263,11 @@ const devolver = () => {
   .descriptione {
     font-size: 1.25rem;
     line-height: 2rem;
+  }
+
+  .imagen-container .descriptione {
     text-align: right;
+    max-width: 35%;
   }
 }
 </style>

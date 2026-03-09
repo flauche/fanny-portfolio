@@ -1,16 +1,18 @@
-export interface Ilustracion {
+export interface Trabajo {
   id: number;
   nomen: string;
-  imago: string;
+  imago: string | string[];
   quote: string;
   descriptione: string;
   año: number;
+  categoria: ('ilustracion' | 'editorial' | 'todo')[];
 }
 
-export const ilustraciones = [
+export const trabajos: Trabajo[] = [
   {
     id: 0,
     año: 2021,
+    categoria: ['ilustracion', 'todo'],
     nomen: "Autorretrato como una ovejita",
     imago: "autorOveja.jpg",
     quote: "ILUSTRACIÓN DIGITAL",
@@ -20,6 +22,7 @@ export const ilustraciones = [
   {
     id: 1,
     año: 2020,
+    categoria: ['ilustracion', 'todo'],
     nomen: "Una persona constante",
     imago: "constante.jpg",
     quote: "ILUSTRACIÓN ACRÍLICA",
@@ -29,6 +32,7 @@ export const ilustraciones = [
   { 
     id: 2,
     año: 2020,
+    categoria: ['ilustracion', 'todo'],
     nomen: "Nara y Sara",
     imago: "narSar.jpg",
     quote: "GOUACHE CON LÁPICES DE COLORES",
@@ -39,6 +43,7 @@ export const ilustraciones = [
   {
     id: 3,
     año: 2021,
+    categoria: ['ilustracion', 'todo'],
     nomen: "Mi lugar de trabajo ideal",
     imago: "lugarIdeal.jpg",
     quote: "ILUSTRACIÓN DIGITAL",
@@ -48,15 +53,17 @@ export const ilustraciones = [
   {
     id: 4, 
     año: 2025,
+    categoria: ['ilustracion', 'todo'],
     nomen: "El jardín secreto",
-    imago: "eJSport.jpg",
+    imago: ['eJSport.jpg', 'unaPag.jpg', 'doblePag.jpg', 'guarda!1.jpg', 'guarda!2.jpg' ],
     quote: "ILUSTRACIÓN NARRATIVA",
-    descriptione: "Esta la portada para el libro El Jardín Secreto. Mi objetivo fue retratar el ambiente mágico y misterioso que envuelve la historia."
+    descriptione: "Serie de ilustraciones para el libro El Jardín Secreto. Mi objetivo fue retratar el ambiente mágico y misterioso que envuelve la historia."
   },
   
   {
     id: 5,
     año: 2021,
+    categoria: ['ilustracion', 'todo'],
     nomen: "Feliz año nuevo chino",
     imago: "tarjFelic.jpg",
     quote: "ILUSTRACIÓN DIGITAL",
@@ -66,6 +73,7 @@ export const ilustraciones = [
   { 
     id: 6,
     año: 2021,
+    categoria: ['ilustracion', 'todo'],
     nomen: "Fanny Fun Time",
     imago: "funTime.jpg",
     quote: "ILUSTRACIÓN DIGITAL",
@@ -74,10 +82,28 @@ export const ilustraciones = [
   {
     id: 7,
     año: 2025,
+    categoria: ['ilustracion', 'todo'],
     nomen: "36 Days of Type",
     imago: "letrritas.jpg",
     quote: "ILUSTRACIONES A GOUACHE",
     descriptione: "Mi versión de 36 Days of Type, con el concepto vintage. Mis referencias fueron los papeles pintados florales y William Morris."
   },
-  
+  {
+  id: 8,
+    año: 2025,
+    categoria: ['editorial', 'todo'],
+    nomen: "Valencia, capital mundial de innovación tecnológica",
+    imago: ['edit2-1.jpg', 'edit2-2.jpg' ],
+    quote: "DISEÑO EDITORIAL",
+    descriptione: "Maquetación para un artículo que trata sobre VDS, uno de los eventos tecnológicos internacionales más destacados de Europa y una plataforma que está transformando Valencia en un centro tecnológico global."
+  },
+  {
+  id: 9,
+    año: 2026,
+    categoria: ['editorial', 'todo'],
+    nomen: "Salud mental en diseñadores: retos y estrategias para el bienestar",
+    imago: ['edit3-1.jpg', 'edit3-2.jpg' ],
+    quote: "DISEÑO EDITORIAL",
+    descriptione: "Maquetación para un artículo académico sobre los retos que tenemos los diseñadores y las estrategias para promover nuestro bienestar."
+  },
 ];
