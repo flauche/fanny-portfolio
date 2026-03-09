@@ -4,14 +4,6 @@ import LayoutPrincipal from '@/layout/LayoutPrincipal.vue';
 
 const photos = ["miloa2", "letras2", "eJS2", "postcard2", "comicZiper2"];
 
-const photoLinks = [
-  "/portfolio/1",
-  "/portfolio/2", 
-  "/portfolio/3",
-  "/portfolio/4",
-  "/portfolio/5"
-];
-
 </script>
 
 <template>
@@ -62,7 +54,7 @@ const photoLinks = [
     
       <Carrus
           :photos="photos"
-          :links="photoLinks"
+          :trabajoIds="[5, 7, 4, 6]"
           basePath="/imagines/home"
           :auto-play-delay="2000"
           class="carousel-contained"

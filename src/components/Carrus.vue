@@ -1,79 +1,78 @@
 <script setup lang="ts">
 import { Card, CardContent } from '@/components/ui/card'
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+ Carousel,
+ CarouselContent,
+ CarouselItem,
+ CarouselNext,
+ CarouselPrevious,
 } from '@/components/ui/carousel'
 import Autoplay from 'embla-carousel-autoplay'
 
-import { trabajos } from './data';
 
 interface Props {
-    photos: string[]
-    basePath: string
-    autoPlayDelay?: number
-    loop?: boolean
-    dragFree?: boolean
-    links?: string[]
+   photos: string[]
+   basePath: string
+   trabajoIds: number[];
+   autoPlayDelay?: number
+   loop?: boolean
+   dragFree?: boolean
 }
 
-const props = withDefaults(defineProps<Props>(), {
-    autoPlayDelay: 2000,
-    loop:true,
-    dragFree: true,
-    links: () => []
-}) 
 
-const trabajosSeleccionados = [
-  trabajos.find(t => t.id === 1),
-  trabajos.find(t => t.id === 5),
-  trabajos.find(t => t.id === 10),
-].filter(Boolean);
+const props = withDefaults(defineProps<Props>(), {
+  loop:true,
+  autoPlayDelay: 2000,
+  dragFree: true,
+})
 
 </script>
 
-<template>
-    <Carousel 
-    class="carousel-full-width"
-    :opts="{
-      loop: props.loop,
-      dragFree: props.dragFree
-    }"
-    :plugins="[Autoplay({
-      delay: props.autoPlayDelay,
-    })]"
-  >
 
-    <CarouselContent>
-        <CarouselItem v-for="(photo, index) in props.photos" :key="index">
-            <div class="p-1">
-            <Card class="border-none shadow-none bg-transparent">
-                <CardContent class="flex items-center justify-center p-0">
-                    <RouterLink 
-                        :to="props.links[index] || '#'" 
-                        class="block w-full h-full group"
+<template>
+   <Carousel
+   class="carousel-full-width"
+   :opts="{
+     loop: props.loop,
+     dragFree: props.dragFree
+   }"
+   :plugins="[Autoplay({
+     delay: props.autoPlayDelay,
+   })]"
+ >
+
+
+   <CarouselContent>
+       <CarouselItem v-for="(photo, index) in props.photos" :key="index">
+           <div class="p-1">
+           <Card class="border-none shadow-none bg-transparent">
+               <CardContent class="flex items-center justify-center p-0">
+                   <div 
+                        class="carousel-item cursor-pointer w-full h-full group"
+                        @click="$router.push({ name: 'portafolio-detalle', params: { id: props.trabajoIds[index] } })"
                     >
-                        <img 
-                            :src="`${props.basePath}/${ photo }.jpg`" 
-                            alt="`Imagen ${ index + 1 } `"
-                            class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-70"
-                        >
-                    </RouterLink>
-                </CardContent>
-            </Card>
-            </div>
-        </CarouselItem>
-        </CarouselContent>
-        <CarouselPrevious class="bg-[rgb(209,172,0)] text-white hidden md:flex justify-center items-center"/>
-        <CarouselNext class="bg-[rgb(209,172,0)] text-white hidden md:flex justify-center items-center"/>
-    </Carousel>
+                       <img
+                           :src="`${props.basePath}/${photo}.jpg`" 
+                           alt="`Imagen ${index + 1}`"
+                           class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-70"
+                       >
+               </div>
+               </CardContent>
+           </Card>
+           </div>
+       </CarouselItem>
+       </CarouselContent>
+       <CarouselPrevious class="bg-[rgb(209,172,0)] text-white hidden md:flex justify-center items-center"/>
+       <CarouselNext class="bg-[rgb(209,172,0)] text-white hidden md:flex justify-center items-center"/>
+   </Carousel>
 </template>
 
 
 
+
+
+
 <style scoped>
+
 
 </style>
