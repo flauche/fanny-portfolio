@@ -20,13 +20,17 @@ const imagenes = computed(() => {
 });
 
 const devolver = () => {
-  router.push({ 
-    name: 'portafolio-gallery',
-    query: { 
-      year: route.query.year ? String(route.query.year) : undefined,
-      categoria: route.query.categoria ? String(route.query.categoria) : undefined
-    }
-  });
+  if (route.query.from === 'home') {
+    router.push('/');
+  } else {
+    router.push({ 
+      name: 'portafolio-gallery',
+      query: { 
+        year: route.query.year,
+        categoria: route.query.categoria
+      }
+    });
+  }
 };
 
 </script>
@@ -173,7 +177,6 @@ const devolver = () => {
   .imagen-container {
     flex-direction: row;
     align-items: flex-start;
-    gap: 3rem;
   }
 }
 

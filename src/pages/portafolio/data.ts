@@ -155,10 +155,10 @@ export const trabajos: Trabajo[] = [
   id: 15,
     año: 2020,
     categoria: ['ilustracion', 'todo'],
-    nomen: "Roba la gallina - Carnaval dominicano",
+    nomen: "Roba la gallina",
     imago: 'carnaval.jpg',
     quote: "ILUSTRACIÓN DIGITAL",
-    descriptione: "Maquetación para un artículo académico sobre los retos que tenemos los diseñadores y las estrategias para promover nuestro bienestar."
+    descriptione: "Ilustración con paleta limitada sobre Roba la Gallina, un personaje principal del carnaval dominicano."
   },
   {
   id: 16,
@@ -195,5 +195,14 @@ export const trabajos: Trabajo[] = [
     imago: 'patron.jpg',
     quote: "ILUSTRACIÓN DIGITAL",
     descriptione: "Patrón de diferentes elementos de Ralph el demoledor.",
+  },
+  {
+    id: 20,
+    año: 2025,
+    categoria: ['ilustracion', 'todo'],
+    nomen: "Mi primer choque lingüístico",
+    imago: 'comicZiper.jpg',
+    quote: "ILUSTRACIÓN SECUENCIAL",
+    descriptione: "Cómic de 2 páginas que trata sobre mi primera palabra desconocida en castellano.",
   },
 ];

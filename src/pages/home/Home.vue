@@ -1,8 +1,20 @@
 <script lang="ts" setup>
 import Carrus from '@/components/Carrus.vue';
 import LayoutPrincipal from '@/layout/LayoutPrincipal.vue';
+import { router } from '@/router';
 
 const photos = ["miloa2", "letras2", "eJS2", "postcard2", "comicZiper2"];
+const trabajoIds = [12, 7, 4, 6, 20];
+
+const irDetalle = (trabajoId: number) => {
+  router.push({ 
+    name: 'portafolio-detalle',
+    params: { id: trabajoId },
+    query: { from: 'home' } 
+  });
+};
+
+//           :trabajoIds="[12, 7, 4, 6, 20]"
 
 </script>
 
@@ -54,10 +66,11 @@ const photos = ["miloa2", "letras2", "eJS2", "postcard2", "comicZiper2"];
     
       <Carrus
           :photos="photos"
-          :trabajoIds="[5, 7, 4, 6]"
+          :trabajoIds="trabajoIds"
           basePath="/imagines/home"
           :auto-play-delay="2000"
           class="carousel-contained"
+          @click="irDetalle"
         />
         </div>
 
