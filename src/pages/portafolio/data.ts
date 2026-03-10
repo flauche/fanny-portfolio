@@ -5,7 +5,7 @@ export interface Trabajo {
   quote: string;
   descriptione: string;
   año: number;
-  categoria: ('ilustracion' | 'editorial' | 'todo')[];
+  categoria: ('ilustracion' | 'editorial' | 'dibujos' | 'todo')[];
 }
 
 export const trabajos: Trabajo[] = [
@@ -105,5 +105,95 @@ export const trabajos: Trabajo[] = [
     imago: ['edit3-1.jpg', 'edit3-2.jpg' ],
     quote: "DISEÑO EDITORIAL",
     descriptione: "Maquetación para un artículo académico sobre los retos que tenemos los diseñadores y las estrategias para promover nuestro bienestar."
+  },
+  {
+  id: 10,
+    año: 2020,
+    categoria: ['dibujos', 'todo'],
+    nomen: "Retrato",
+    imago: 'retrato1.jpg',
+    quote: "DIBUJO",
+    descriptione: "Realizado sobre papel Canson mi-teintes."
+  },
+  {
+  id: 11,
+    año: 2026,
+    categoria: ['dibujos', 'todo'],
+    nomen: "Retrato",
+    imago: 'retrato2.jpg',
+    quote: "DIBUJO",
+    descriptione: "Realizado sobre papel Canson mi-teintes."
+  },
+  {
+  id: 12,
+    año: 2025,
+    categoria: ['ilustracion', 'todo'],
+    nomen: "Miloa",
+    imago: 'miloa2.jpg',
+    quote: "ILUSTRACIÓN EN PACKAGING",
+    descriptione: "Diseño de packaging para una marca de chocolate imaginativa que enfatiza la producción artesanal. Las manos exageradas de los personajes simbolizan la artesanía y evocan la calidez de una pequeña empresa familiar."
+  },
+  {
+  id: 13,
+    año: 2020,
+    categoria: ['ilustracion', 'todo'],
+    nomen: "Cuatro estaciones",
+    imago: '4estaciones.jpg',
+    quote: "ILUSTRACIÓN DIGITAL",
+    descriptione: "Patrón repetitivo de las cuatro estaciones."
+  },
+  {
+  id: 14,
+    año: 2021,
+    categoria: ['ilustracion', 'todo'],
+    nomen: "Ramram",
+    imago: 'ramram.jpg',
+    quote: "ILUSTRACIÓN DIGITAL",
+    descriptione: "Infografía sobre una planta imaginativa que contiene ramen, alga, puerro y semillas."
+  },
+  {
+  id: 15,
+    año: 2020,
+    categoria: ['ilustracion', 'todo'],
+    nomen: "Roba la gallina - Carnaval dominicano",
+    imago: 'carnaval.jpg',
+    quote: "ILUSTRACIÓN DIGITAL",
+    descriptione: "Maquetación para un artículo académico sobre los retos que tenemos los diseñadores y las estrategias para promover nuestro bienestar."
+  },
+  {
+  id: 16,
+    año: 2020,
+    categoria: ['dibujos', 'todo'],
+    nomen: "Retrato de un señor",
+    imago: 'retratoSenor.jpg',
+    quote: "DIBUJO",
+    descriptione: "Realizado con carboncillo y lápiz."
+  },
+  {
+  id: 17,
+    año: 2020,
+    categoria: ['dibujos', 'todo'],
+    nomen: "Vestido elegante",
+    imago: 'vestido.jpg',
+    quote: "DIBUJOS",
+    descriptione: "Práctica de ilustración de moda."
+  },
+  {
+  id: 18,
+    año: 2021,
+    categoria: ['ilustracion', 'todo'],
+    nomen: "Rediseño de un dibujo de la infancia",
+    imago: 'redibujo.jpg',
+    quote: "ILUSTRACIÓN DIGITAL",
+    descriptione: "Me gustaba Carly Jae Repsen, Bruno Mars y Barbie. Los redibujé con el edificio alto que estaba en mi dibujo anterior."
+  },
+  {
+  id: 19,
+    año: 2026,
+    categoria: ['ilustracion', 'todo'],
+    nomen: "Patrón para una alfombra de bolera",
+    imago: 'patron.jpg',
+    quote: "ILUSTRACIÓN DIGITAL",
+    descriptione: "Patrón de diferentes elementos de Ralph el demoledor.",
   },
 ];
