@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import LayoutPrincipal from '@/layout/LayoutPrincipal.vue';
-import { computed, ref } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import { trabajos } from './data';
 import { useRouter, useRoute } from 'vue-router'
 import { Slider } from '@/components/ui/slider'
@@ -16,6 +16,20 @@ const categoriaSeleccionada = ref(
   route.query.categoria ? String(route.query.categoria) : 'todo'
 );
 
+watch(() => route.query.categoria, (nuevaCategoria) => {
+  categoriaSeleccionada.value = nuevaCategoria ? String(nuevaCategoria) : 'todo';
+});
+
+watch(categoriaSeleccionada, (nuevaCategoria) => {
+  router.replace({
+    query: {
+      categoria: nuevaCategoria,
+      year: route.query.year
+    }
+  });
+});
+
+
 const añosDisponibles = computed(() => {
   let trabajosFiltrados = trabajos;
 
@@ -30,6 +44,16 @@ const añosDisponibles = computed(() => {
 });
 
 const añoSeleccionadoIndex = ref([añosDisponibles.value.length - 1]);
+
+watch(() => route.query.year, (nuevoAño) => {
+  if (nuevoAño) {
+    const numAño = Number(nuevoAño);
+    const index = añosDisponibles.value.indexOf(numAño);
+    if (index >= 0) {
+      añoSeleccionadoIndex.value = [index];
+    }
+  }
+}, { immediate: true });
 
 const añoSeleccionado = computed(() => {
   const index = añoSeleccionadoIndex.value[0] as number;
@@ -68,6 +92,25 @@ const irDetalle = (id: number) => {
     }
   });
 };
+
+onMounted(() => {
+  router.afterEach(() => {
+
+    if (route.query.categoria) {
+      categoriaSeleccionada.value = String(route.query.categoria);
+    } else {
+      categoriaSeleccionada.value = 'todo';
+    }
+    
+    if (route.query.year) {
+      const numAño = Number(route.query.year);
+      const index = añosDisponibles.value.indexOf(numAño);
+      if (index >= 0) {
+        añoSeleccionadoIndex.value = [index];
+      }
+    }
+  });
+});
 
 </script>
 
