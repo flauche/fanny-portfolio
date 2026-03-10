@@ -6,7 +6,7 @@ import { router } from '@/router';
 const photos = ["miloa2", "letras2", "eJS2", "postcard2", "comicZiper2"];
 const trabajoIds = [12, 7, 4, 6, 20];
 
-const irDetalle = (trabajoId: number) => {
+const irDetalleDesdeHome = (trabajoId: number) => {
   router.push({ 
     name: 'portafolio-detalle',
     params: { id: trabajoId },
@@ -70,7 +70,7 @@ const irDetalle = (trabajoId: number) => {
           basePath="/imagines/home"
           :auto-play-delay="2000"
           class="carousel-contained"
-          @click="irDetalle"
+          :onClickItem="irDetalleDesdeHome"
         />
         </div>
 

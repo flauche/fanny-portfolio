@@ -20,9 +20,17 @@ const imagenes = computed(() => {
 });
 
 const devolver = () => {
+  // Debug - check what queries we have
+  console.log('All queries:', route.query);
+  console.log('From query:', route.query.from);
+  console.log('Type of from:', typeof route.query.from);
+  
+  // Check if coming from home
   if (route.query.from === 'home') {
+    console.log('Going back to home');
     router.push('/');
   } else {
+    console.log('Going back to gallery');
     router.push({ 
       name: 'portafolio-gallery',
       query: { 
@@ -32,7 +40,6 @@ const devolver = () => {
     });
   }
 };
-
 </script>
 
 <template>

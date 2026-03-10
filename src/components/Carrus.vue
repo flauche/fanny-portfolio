@@ -14,6 +14,7 @@ interface Props {
    photos: string[]
    basePath: string
    trabajoIds: number[];
+   onClickItem?: (id:number) => void
    autoPlayDelay?: number
    loop?: boolean
    dragFree?: boolean
@@ -25,6 +26,12 @@ const props = withDefaults(defineProps<Props>(), {
   autoPlayDelay: 2000,
   dragFree: true,
 })
+
+const manejoClic = (index: number) => {
+  if (props.onClickItem && props.trabajoIds[index]) {
+    props.onClickItem(props.trabajoIds[index]);
+  }
+};
 
 </script>
 
@@ -49,7 +56,7 @@ const props = withDefaults(defineProps<Props>(), {
                <CardContent class="flex items-center justify-center p-0">
                    <div 
                         class="carousel-item cursor-pointer w-full h-full group"
-                        @click="$router.push({ name: 'portafolio-detalle', params: { id: props.trabajoIds[index] } })"
+                        @click="manejoClic(index)"
                     >
                        <img
                            :src="`${props.basePath}/${photo}.jpg`" 
@@ -62,8 +69,12 @@ const props = withDefaults(defineProps<Props>(), {
            </div>
        </CarouselItem>
        </CarouselContent>
-       <CarouselPrevious class="bg-[rgb(209,172,0)] text-white hidden md:flex justify-center items-center"/>
-       <CarouselNext class="bg-[rgb(209,172,0)] text-white hidden md:flex justify-center items-center"/>
+       <CarouselPrevious 
+        @click.stop
+        class="bg-[rgb(209,172,0)] text-white hidden md:flex justify-center items-center"/>
+       <CarouselNext 
+        @click.stop
+        class="bg-[rgb(209,172,0)] text-white hidden md:flex justify-center items-center"/>
    </Carousel>
 </template>
 
