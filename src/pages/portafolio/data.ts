@@ -84,7 +84,7 @@ export const trabajos: Trabajo[] = [
     año: 2025,
     categoria: ['ilustracion', 'todo'],
     nomen: "36 Days of Type",
-    imago: "letrritas.jpg",
+    imago: "letrritas2.jpg",
     quote: "ILUSTRACIONES A GOUACHE",
     descriptione: "Mi versión de 36 Days of Type, con el concepto vintage. Mis referencias fueron los papeles pintados florales y William Morris."
   },
